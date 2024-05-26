@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+
+    "use strict";
+    let obj = {
+	    className: 'open menu'
+    }
+
+    obj.addClass = function(cls){
+        if(!this.className.includes(cls)) this.className += ' ' + cls;
+
+        return this;
+    }
+
+    obj.removeClass = function(cls){
+        let name = this.className.split(' ');
+        name = name.filter(a => a != cls);
+        
+        this.className = name.join(' ');
+        return this;
+    }
+
+    obj.addClass('close'); // open menu close
+    obj.addClass('Hi'); // open menu close Hi
+    obj.addClass('open');  // тоже самое
+
+    console.log(obj.className);
+
+    obj.removeClass('Hello'); // тоже самое
+    obj.removeClass('close'); // open menu Hi
+    obj.removeClass('open'); // menu Hi
+
+    console.log(obj.className);
+
+</script>
+
+</body>
+</html>
