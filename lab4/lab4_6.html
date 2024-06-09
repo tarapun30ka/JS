@@ -10,26 +10,22 @@
 <body>
 
     <script>
-        "use strict";
-
-        let obj = {
-            name: 'John',
-            age: 30,
-            isAdmin: false,
+        'use strict';
+        let nestedObj = {
+            className: 'open menu',
+            details: {
+                author: 'Rio',
+                year: 2010
+            }
         };
 
-        let jsonString = JSON.stringify(obj, null, 2);
+        const jsonString = JSON.stringify(nestedObj, null, 2);
         console.log(jsonString);
 
-        let obj2 = JSON.parse(jsonString);
+        const obj2 = JSON.parse(jsonString);
+        console.log(obj2);
 
-        // let isEqual = JSON.stringify(obj) === JSON.stringify(obj2);
-        // console.log("Объекты равны:", isEqual);
-        console.log(`Объекты равны? ${JSON.stringify(obj) === JSON.stringify(obj2)}`);
-        // console.log(`Объекты равны? ${obj === obj2}`);
-
-
-
+        console.log(nestedObj === obj2); // true
     </script>
 
 </body>
