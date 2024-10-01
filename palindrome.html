@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полиндром</title>
+</head>
+<body>
+    <script>
+        function isPalindrome(str) {
+            //привела к нижнему регистру, так как он не важен по условию
+            //удалила все небуквенные символы через регулярное выражение (^ - найти любой символ, который не входит в указанный диапазон)
+            //а это диапазон букв
+            //g - ищет во всей стрке, а не только первый символ
+            //заменяем каждый такой символ на пустую строку
+            strClean = str.toLowerCase().replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '');
+            
+            //разбила посимвольно строку, переврнула, склела и сравнила с исходной (очищенной) строкой
+            return strClean === strClean.split('').reverse().join('');
+        }
+            //пример
+            console.log("казак:", isPalindrome("казак"));
+            console.log("а роза упала на лапу Азора:", isPalindrome("а роза упала на лапу Азора"));
+            console.log("привет:", isPalindrome("привет"));
+
+    </script>
+</body>
+</html>
